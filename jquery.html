@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-2.0.0.min.js" ></script>
+    <script>
+        $(document).ready(function () {
+            $('div').width(100).height(100).css('backgroundColor','red').text('啊哈哈');
+            console.log($('div').css('background-color'));
+            console.log($('div').css('border'));
+        //    在edge中只用border取不到值
+
+        //获取包含了多个dom元素的jquery对象的样式，只能获取到第一个dom对象的样式
+            var a=$('div1');
+            var b=document.getElementById('div1');
+            // console.log(a);
+            // console.log(b);
+            //dom对象和jquery对象不是一个东西
+            a.onclick=function () {
+ console.log(a);
+            }
+        //  似乎jquery对象不能用它来实现普通js。
+        //    JS对象，是一个名值对的无序集合。
+//             jquery对象，是jquery特有的对象，只有调用jquery框架才存在。其实jquery对象，也是一种js对象。
+// jquery对象和js对象可以相互转换，例如
+//             $("#div").get(),即可以把一个jquery对象转换为js对象。
+// 最主要的区别，js对象上的方法，不能直接用在jquery对象上，如果一定要给jquery对象使用js对象的方法，必须把jquery对象转换为js对象。jquery对象，则可以随意使用jquery定义的方法。
+        $('input').click(function () {
+            $('#div').css('width','1000px');
+        //    我猜一下，带#是因为div1并不是标签，div才是2
+        //    设置的样式是行内样式
+        //    设置单样式，就是上面那句
+        //    设置单样式
+        //     $('#div').css('width','1000px');
+        //设置多样式#().css({});
+            $('#div1').css({
+                width:330,'height':'300px',
+                'backgroundColor':'green',
+                'border-top-width':'10px'
+            });
+        //    为标签为div的元素们设置样式
+            $('div').css({
+                width:330,'height':'300px',
+                'backgroundColor':'green',
+                'border-top-width':'10px'
+            })
+        //隐是迭代。
+        //    jquery选择器
+
+
+
+        })
+            //子类选择器
+            // $('ul > li').css({
+            // 也可以这么写
+            //后代选择器
+            // $(ul>;li,ul>p)逗号是并集的意思
+                $('ul p').css({
+                width:300,
+                'display':'block',
+                'height':'300px',
+                'backgroundColor':'green',
+                'border-top-width':'10px'
+            });
+
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="set" id="input">
+<div id="div1" style="border: darkgrey solid 1px;">div1</div>
+<div></div>
+<div></div>
+<ul>
+    <li>erzi</li>
+    <li>mama</li>
+    <li><p>lili</p>baba</li>
+
+
+</ul>
+
+</body>
+</html>
