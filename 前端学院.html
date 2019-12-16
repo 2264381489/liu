@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <title>前端学院</title>
     <style>
-        .header{background: url("img/前端学院设计图-(1)_01.png");
-            width: 100%;
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .header{
+            background: url("img/前端学院设计图-(1)_01.png") no-repeat center;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            /*width: 100%;*/
             height: 900px;
             position: relative;
             /*text-align: center;*/
@@ -15,24 +22,64 @@
             position: absolute;
             color: white;
             font-size: 40px;
-            left: 650px;
+            left: calc(50% - 125px);
             top:200px;
-            opacity: 0.6;
-            font-family:"Mongolian Baiti";
+            font-weight: lighter;
+            /*opacity: 0.6;*/
+            font-family:"Montserrat";
 
         }
+        .banner{
+            width: 100%;
+            height: 800px;
+        }
+        .banner-mid{background: url("");}
 
     </style>
+    <link type="text/css" href="轮播图.css" rel="stylesheet">
+    <script src="jquery-2.0.0.min.js"></script>
+    <script></script>
 </head>
-<body>
+<body style="position: relative;">
+
+
 <div class="header">
     <p class="header-p">HELLO WORLD</p>
-    <div style="width:800px;position: absolute;  left: 409px;top: 400px;">
-    <p style="color: white;opacity: 0.6;font-family: 'Adobe Arabic';font-size: 26px;">China is speeding up strategic plan, standards, traffic rules, laws and regulations on accident-incurred liabilities for its smart car industry, Economic Information Daily reported Thursday.</p>
+    <div style="width:45%;position: absolute; text-align: center; left: 28.5%;top: 347px;">
+    <p style="color: white;font-family: 'Montserrat';opacity:0.6;font-size: 20px;font-weight: lighter;">China is speeding up strategic plan, standards, traffic rules, laws and regulations on accident-incurred liabilities for its smart car industry, Economic Information Daily reported Thursday.</p>
     </div>
-    <div style="position: absolute;top: 540px;left: 315px;border: darkgrey solid 1px;width: 970px;height: 200px;">
+    <div style="position: absolute;top: 500px;left: 20%;border: darkgrey solid 1px;width: 60%;height: 200px;">
+        <div>
+        <p style="margin-top: 31px;margin-left: 370px; color: white;"> CREATE YOUR ACCOUNT</p>
+
+            <input type="text" style="width: 210px;height: 40px; border: 1px solid darkgrey;background-color:transparent;margin-left: 100px;margin-top: 70px;color: white;padding-left: 40px;"placeholder="yanzezhong@outlook.com">
+            <input type="text" style="width: 210px;height: 40px; border: 1px solid darkgrey;background-color:transparent;margin-left: 20px;margin-top: 70px;color: white;padding-left: 40px;"placeholder="Create Your Passport">
+            <input type="submit" style="margin-left:60px;margin-top: 40px;width: 130px;height: 50px;color: transparent;background-color: transparent;border: none; " onclick="location.href='刘明月.html'">
+        </div>
     </div>
 </div>
+<div class="banner">
+    <div style="height: 25px;width: 100%;background-color: #666666"></div>
+    <div class="box">
+        <ul class="image">
+            <li><img src="images/轮播图001.jpg" ></li>
+            <li><img src="images/轮播图002.jpg"> </li>
+            <li><img src="images/轮播图003.jpg" ></li>
+            <li></li>
+        </ul>
+         <div class="left-arrow"></div>
+         <div class="right-arrow"></div>
+    </div>
 
+
+
+
+
+
+</div>
+
+<div class="banner-mid">
+<img src="img/前端学院设计图-(1)_18.png" style="width: 100%;">
+</div>
 </body>
 </html>
