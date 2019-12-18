@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery事件</title>
+    <link href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">-->
+    <script src="jquery-2.0.0.min.js"></script>
+    <style>
+        *{
+            font-family: Montserrat,sans-serif;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image:url("背景11.png");
+
+        }
+        .login-box{
+            position: absolute;
+            top: 0;
+            left:-100%;
+            width: 100%;
+            height: 100vh;
+            background-image:linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+            transition: 0.4s;
+
+        }
+        .login-form{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            text-align: center;
+        }
+        .login-form h1{
+            font-weight: 400;
+            margin-top: 0;
+        }
+        .txtb{
+            display: block;
+            box-sizing: border-box;
+            width: 240px;
+            background: #ffffff28;
+            border: 1px solid white;
+            padding: 10px 20px;
+            color: white;
+            outline: none;
+            margin: 10px 0;
+    border-radius:6px;
+            text-align: left;
+}
+        .login-btn{
+            width: 240px;
+            background: #2c3e50;
+            border: 0;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .hide-login-btn{
+            color:white;position: absolute;top: 40px;right: 40px;cursor: pointer;font-size: 24px;
+            opacity: .7;
+        }
+        .show-login-button{
+            position: absolute;
+            margin-top:12.5%;
+            display: none;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            border: 2px solid;
+            padding: 10px;
+            cursor: pointer;
+
+        }
+        .showed{
+            left: 0;
+        }
+        .show-title{
+            display: none;
+            margin-top: 12.5%;
+            font-size: 50px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="show-title">
+<i class="fa fa-quora" aria-hidden="true"></i>
+    <p>Timosithy Rasinski</p>
+</div>
+<div class="show-login-button">
+
+    <i class="fa fa-sign-in" aria-hidden="true">SHOW LOGIN FORM</i>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="login-box">
+    <div class="hide-login-btn"> <i class="fa fa-times"></i> </div>
+            <form class="login-form" action="前端学院.html" method="post">
+                <h1>Welcome</h1>
+                <input class="txtb" type="text" name="" placeholder="Username" >
+                <input class="txtb" type="password" name="" placeholder="Password">
+                <input class="login-btn" type="submit" name="" value="Login">
+            </form>
+
+</div>
+
+</body>
+<script>
+    $('.show-login-button').slideDown(2000);
+    $('.show-title').slideDown(2000);
+    $('.show-login-button').on("click",function () {
+        $(".login-box").toggleClass("showed");
+    });
+    $('.hide-login-btn').on("click",function () {
+        $(".login-box").toggleClass("showed");
+
+
+    });
+</script>
+</html>
