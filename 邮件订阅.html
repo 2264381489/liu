@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邮件订阅</title>
+    <link href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">-->
+    <script src="jquery-2.0.0.min.js"></script>
+    <style>
+        body{
+            font-family: Montserrat,sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            background: url("背景111.png");
+            background: #CF51BA;
+        }
+        .email{
+            margin-top: calc(10% - 60px);
+            position: absolute;
+            left: calc(15% - 60px);
+            /*margin: 10% auto;*/
+            width: 70%;
+            height: 50%;
+            background: url("背景111.png");
+            box-shadow: 0 0 20px #00000060;
+            padding: 60px;
+            display: none;
+
+        }
+        p{
+            margin: 0;
+        }
+        .email>p{
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            display: block;
+        }
+        button:hover{
+            background-color: #CF51BA;
+            cursor: pointer;
+
+        }
+    </style>
+
+</head>
+<body>
+<form action="https://outlook.live.com/owa/">
+<div class="email" style="text-align: center;">
+    <p>MONTHLY</p>
+    <p style="margin: 0;font-size: 44px;">NEWPAPER</p>
+    <p style="margin-top: 20px;font-size: 20px;font-weight: lighter;color: black;">Only one dollar a day </p>
+    <input style="width:40%; padding-left: 40px;border-radius:40px;height: 70px;margin-top: 40px;background: #f1f1f199;border: none;outline: none;"placeholder="Enter Your Email Address">
+    <button type="submit" style="border-radius:50%;border: 0;width: 50px;height: 50px; background-color: #574b90;outline: none;position: relative;right: 80px;"><i class="fa fa-arrow-right"></i></button>
+
+</div>
+</form>
+</body>
+<script>
+    $('.email').slideDown(1000);
+</script>
+</html>
