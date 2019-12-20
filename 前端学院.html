@@ -94,8 +94,8 @@
         <div>
         <p style="margin-top: 31px;margin-left: 370px; color: white;"> CREATE YOUR ACCOUNT</p>
 
-            <input type="text" style="width: 210px;height: 40px; border: 1px solid darkgrey;background-color:transparent;margin-left: 100px;margin-top: 70px;color: white;padding-left: 40px;"placeholder="yanzezhong@outlook.com">
-            <input type="text" style="width: 210px;height: 40px; border: 1px solid darkgrey;background-color:transparent;margin-left: 20px;margin-top: 70px;color: white;padding-left: 40px;"placeholder="Create Your Passport">
+            <input type="text" class="txt" style="width: 210px;height: 40px; border: 1px solid darkgrey;background-color:transparent;margin-left: 100px;margin-top: 70px;color: white;padding-left: 40px;"placeholder="yanzezhong@outlook.com">
+            <input type="password" class="txt2" style="width: 210px;height: 40px; border: 1px solid darkgrey;background-color:transparent;margin-left: 20px;margin-top: 70px;color: white;padding-left: 40px;"placeholder="Create Your Passport">
             <input type="submit" style="margin-left:60px;margin-top: 40px;width: 130px;height: 50px;color: transparent;background-color: transparent;border: none; " onclick="location.href='刘明月.html'">
         </div>
     </div>
@@ -193,6 +193,8 @@
     // console.log(main[1].value);
     window.localStorage.name=main[1].value;
     });
+    $('.txt').val(window.localStorage.id);
+    $('.txt2').val(window.localStorage.password);
 
 </script>
 </html>

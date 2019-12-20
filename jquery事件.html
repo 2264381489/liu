@@ -117,8 +117,8 @@
     <div class="hide-login-btn"> <i class="fa fa-times"></i> </div>
             <form class="login-form" action="前端学院.html" method="post">
                 <h1>Welcome</h1>
-                <input class="txtb" type="text" name="" placeholder="Username" >
-                <input class="txtb" type="password" name="" placeholder="Password">
+                <input class="txtb" id="texb" type="text" name="" placeholder="Username" >
+                <input class="txtb" id="txtc" type="password" name="" placeholder="Password">
                 <input class="login-btn" type="submit" name="" value="Login">
             </form>
 
@@ -135,6 +135,10 @@
         $(".login-box").toggleClass("showed");
 
 
+    });
+    $('.login-btn').click(function() {
+        window.localStorage.id = $('#texb').val();
+        window.localStorage.password = $('#txtc').val();
     });
 </script>
 </html>
