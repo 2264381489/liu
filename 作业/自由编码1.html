@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环输出遇三PA</title>
+</head>
+<body>
+<button>连接按钮</button>
+<p id="p"></p>
+</body>
+<script>
+    //设置主要循环体，用来循环输出
+    var arr1;
+    function add() {
+
+        var i=1;
+        var arr=new Array(100);//建设数组，用来存入数据
+        while(i!==100){
+            if(i%3!==0) {//如果不等于0，则执行普通存入
+                arr[i] = i;//从后向前存入
+            }else //否则执行特殊存入
+            {
+                arr[i]="PA";
+            }
+            i++;
+        }
+        arr1=arr.join("");
+        document.getElementById("p").innerText=arr1;
+    }
+    add();
+
+</script>
+</html>
