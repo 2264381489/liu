@@ -1,65 +1,59 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <link href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
-    <link href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">-->
-    <script src="jquery-2.0.0.min.js"></script>
-    <title>Title</title>
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-            font-family: Montserrat;
 
-        }
-        div{
-            animation: imation 15s infinite;
-            /*动画的第一个参数是你定义的动画的名称，第二个是你动画持续的时间，第三个是如何持续*/
-            font-weight: bold;
-        }
-        span{
-            cursor: pointer;
-        }
-        .jquery-div{
-            background-image: url("背景111.png");
-        }
-        @keyframes imation {
-            0%{
-                background-position:0% 50%;
-            }
-            /*动画持续时间的百分比*/
-            50%{
-                background-position:100% 50% ;
-            }
-            100%{
-                background-position: 0% 50%;
-            }
-
-        }
-        i{
-            width: 30px;
-            cursor: pointer;
-
-        }
-    </style>
+    <title>验证菜单</title>
 
 </head>
+
 <body>
-<div style="background-size:400%; background-image:linear-gradient(125deg,#2c3e50,#27ae60,#2980b9,#e74c3c,#8e44ad);text-align: center;color: white;line-height: 800px;">
-    <span class="span">DO YOU HEAR ME</span>
+
+<div>
+
+    <form>
+
+        <label for="username">username</label><input type="text" id="username"><br>
+
+        <label for="password">password</label><input type="text" id="password"><br>
+
+        <label for="idcard">idcard</label><input type="text" id="idcard"><br>
+
+        <label for="number">number</label><input type="text" id="number"><br>
+
+    </form>
+
+    <button id="check" value="检测">检测</button>
+
 </div>
-<div class="jquery-div" style="width: 60%;top:-100%;left:20%;position: absolute;height: 400px;position: absolute; ">
-<div style="position: relative;width:60%;height: 50%;top: 25%;left: 20%;background: transparent;outline: none;opacity: 0.6; ">
-    <i class="fa fa-align-center" aria-hidden="true"></i><i class="fa fa-columns" aria-hidden="true"></i><i class="fa fa-eraser" aria-hidden="true"></i><i class="fa fa-file-text-o" aria-hidden="true"></i><br>
-    <textarea style=" width: 100%;height: 90%;padding: 10px 4px 10px 4px;font-size: 20px;" placeholder="提出你的意见"></textarea>
-</div>
-</div>
-</body>
+
 <script>
-    $('.span').click(function(){
-        console.log('success');
-    $('.jquery-div').animate({top:'30%'},2000)});
+
+    var oBtn=document.getElementById('check');
+
+    oBtn.onclick=function () {
+
+
+
+
+
+        var username = document.getElementById("username").value;
+
+        var password = document.getElementById("password").value;
+
+        var idcard=document.getElementById('idcard').value;
+
+        var number=document.getElementById('number').value;
+
+        confirm("确认预订信息：\n"+"用户名："+ username +"\n密码："+password+"\nidcard :"+idcard+"\n购买数据 :"+number)
+
+    }
+
 </script>
+
+</body>
+
 </html>
