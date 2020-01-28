@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="news-top" class="section">
+        <h3>Some title</h3>
+        <div class="content">
+            <ul>
+                <li><span>HTML</span><a href="">Some Link1</a></li>
+                <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                <li><span>CSS</span><a href="">Some Link3</a></li>
+                <li><span>JS</span><a href="">Some Link4</a></li>
+            </ul>
+        </div>
+        <img src="">
+        <p class="">Some Text</p>
+    </div>
+    <div id="news-normal" class="section">
+        <h3>Some title</h3>
+        <div class="content">
+            <ul>
+                <li><span>HTML</span><a href="">Some Link1</a></li>
+                <li><span>HTML</span><a href="">Some Link2</a></li>
+                <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                <li><span>CSS</span><a href="">Some Link4</a></li>
+            </ul>
+        </div>
+        <img src="">
+        <p class="">Some Text</p>
+    </div>
+</div>
+<script>
+
+    function getAllListItem() {
+        var list=document.getElementsByTagName("li");
+        console.log(list);
+        // 返回页面中所有li标签
+    }
+
+    function findAllHtmlSpanInOneSection(sectionId) {
+        // 返回某个section下所有span中内容为HTML的span标签
+        var list2=new Array();
+        var lis=document.getElementById(sectionId);
+        console.log(lis);
+        var list=lis.getElementsByTagName("span");//因为queryselectorall的性质，所以list最后是一个数组
+        var j=0;
+           for(var i=0; i<list.length;i++){//如果i=0，length为5则到了i=4时停止运行，不比对length进行运算
+               if(list[i].textContent==="HTML"){
+                   list2[j]=list[i];
+                   j++;
+               }
+           }
+       console.log(list2);
+    }
+
+    function findListItem(sectionId, spanCont) {
+        var j = 0;
+        var list2=new Array();
+        // 返回某个section下，所有所包含span内容为spanCont的LI标签
+        var list = document.getElementById(sectionId).getElementsByTagName("span");
+        for (var i = 0; i < list.length; i++) {//如果i=0，length为5则到了i=4时停止运行，不比对length进行运算
+            if (list[i].textContent === spanCont) {//即比较内容又比较类型
+                list2[j] = list[i].parentNode;//获取目标内容的父节点
+                j++;
+            }
+        }
+        console.log(list2);
+    }
+
+    function getActiveLinkContent(sectionId) {
+        // 返回某个section下，class为active的链接中包含的文字内容
+        var list = document.getElementById(sectionId);//某个section下面
+
+    }
+
+    getAllListItem();
+    findAllHtmlSpanInOneSection("news-normal");
+    findListItem("news-normal","JS");
+
+
+</script>
+</body>
+</html>
