@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="name" type="text">
+<button id="submit-btn">Submit</button>
+
+</body>
+<script>
+    var oBtn=document.getElementById("submit-btn");
+    document.onkeydown=function(ev){
+        var theEvent = window.event || e;
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+        console.log("zhixing");
+        if (ev.keyCode === 13) {
+            var name=document.getElementById("name").value;//这个属性很重要
+            console.log(name);
+        }
+        if(ev.keyCode===27){
+            var name=document.getElementById("name");
+            name.value="";
+        }
+    };
+
+    oBtn.onclick=function () {
+
+        var name=document.getElementById("name").value;//这个属性很重要
+        console.log(name);
+
+    }
+//     在HTML中增加上面的代码，然后通过JavaScript编写如下功能：
+// 当点击按钮 submit-btn 时，在console中输出 name 中的内容
+//     在输入过程中，如果按回车键，则同样执行上一条的需求
+//     在输入过程中，如果按 ESC 键，则把输入框中的内容清空
+</script>
+</html>
