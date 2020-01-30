@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>素组</title>
+</head>
+<body>
+<input id="queue-input" type="text">
+<p id="queue-cont">队列内容：apple-&gt;pear</p>
+<button id="in-btn">入队</button>
+<button id="out-btn">出队</button>
+<button id="font-btn">打印队头元素内容</button>
+<button id="empty-btn">判断队列是否为空</button>
+
+<script>
+
+    var queue = ["apple", "pear"];
+    var inBtn=document.getElementById("in-btn");
+    var outBtn=document.getElementById("out-btn");
+    var fontbtn=document.getElementById("font-btn");
+    var emptyBtn=document.getElementById("empty-btn");
+    var queuecont=document.getElementById("queue-cont")
+    // var queueCont=document.getElementById("queue-cont").textContent
+    var queue1=document.getElementById("queue-input");
+//似乎在外面的value无法对函数内的参数起效果
+      inBtn.onclick=function () {
+          console.log(queue);
+           var a=queue.push(queue1.value);
+           var a1=document.createElement("span");
+           a1.innerHTML=queue1.value;
+           queuecont.append(a1);
+           //要想在p节点之后插入东西，就必须用span来插入，要是还用p，那就会被挤到下一行去  https://zhidao.baidu.com/question/284433903.html
+      }
+    outBtn.onclick=function () {
+        console.log(queue);
+        var a=queue.pop();//出队，似乎在这个里面出队似乎可以让queue一边显示其内容，但是里面的长度却产生变化。
+    }
+    fontbtn.onclick=function () {
+          console.log(queue[queue.length-1]);
+
+    }//获取队头
+    emptyBtn.onclick=function () {
+           if(queue.length===0){
+               console.log("是空的");
+           }
+
+    }
+
+
+</script>
+</body>
+</html>
