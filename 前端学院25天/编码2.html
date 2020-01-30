@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="time"></p>
+</body>
+<script>
+    var time=document.getElementById("time");
+    Date.prototype.format = function(formatStr){
+        var str = formatStr;
+        var Week = ['日','一','二','三','四','五','六'];
+        str=str.replace(/yyyy|YYYY/,this.getFullYear());
+        str=str.replace(/MM/,(this.getMonth()+1)>9?(this.getMonth()+1).toString():'0' + (this.getMonth()+1));
+        str=str.replace(/dd|DD/,this.getDate()>9?this.getDate().toString():'0' + this.getDate());
+        str=str.replace(/dd|AA/,Week[this.getDate()%7+2]);
+        str=str.replace(/hh|HM/,this.getHours());
+        str=str.replace(/mm|MM/,this.getMinutes());
+        str=str.replace(/mm|SC/,this.getSeconds());
+        return str;
+    };
+    var a=setInterval(function () {
+       var time1=new Date().format("YYYY年MM月DD日 星期AA  HM：MM：SC");
+        time.innerHTML=time1;
+    },1000);
+
+
+
+</script>
+</html>
