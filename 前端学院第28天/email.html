@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .oli{
+            list-style: none;
+            padding:0;
+            height: 22px;
+            line-height: 22px;
+        }
+        .hide{
+            display: none;
+            visibility:hidden;
+        }
+        ul{
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <input type="button" onclick="hide()">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+</body>
+<script>
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var emailInput=document.getElementById("email-input");
+    var emailSug=document.getElementById("email-sug-wrapper");
+    var oLi=new Array();//存储生成的li标签。（不这么将生成语句提出来，下面就会不断地进行生成，因为每一个字都会触发一次事件。）
+    var str =new Array();
+    var test=0;
+
+    // emailInput.onkeyup= function() {
+    //     // 获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
+    //     // 控制email-sug-wrapper的显示/隐藏状态
+    //     console.log("onkeyup");
+    //     //第四名
+    // }
+    // emailInput.onkeypress= function() {
+    //     // 获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
+    //     // 控制email-sug-wrapper的显示/隐藏状态
+    //     console.log("onkeypress");
+    //     //第二名
+    // }
+    emailInput.onclick=function(){
+        // for(var i=0;i<postfixList.length-1;i++) {
+        //      oLi[i]= document.createElement("li");//创建li
+        //     oLi[i].style.listStyle="none";//记得要加双引号
+        //     emailSug.appendChild(oLi[i]);//加入到上面的ul中。
+        //     // console.log("zhixing");
+        // }
+        create();
+        // if(emailInput.value===""){
+        //     hide();
+        //     console.log("执行");
+        // }
+    };
+    emailInput.onkeyup= function() {
+        inform();
+        if(emailInput.value===""){
+                hide();
+                console.log("执行");
+            }
+    }
+        // console.log("onkeydown");
+        //第一名
+
+    /**
+     * 用来创建li
+     */
+    function create() {
+        for(var i=0;i<postfixList.length;i++) {
+            oLi[i]= document.createElement("li");//创建li
+            oLi[i].style.listStyle="none";//记得要加双引号
+            emailSug.appendChild(oLi[i]);//加入到上面的ul中。
+            // console.log("zhixing");
+        }
+    }
+
+
+    /**
+     * 隐藏
+     */
+    function hide() {
+        for(var i=0;i<postfixList.length;i++) {
+            oLi[i].className="hide";
+            console.log(oLi[i].className);
+        }
+    }
+    /**
+     * 生成提示内容
+     */
+    function inform() {
+        for (var i = 0; i < postfixList.length - 1; i++) {
+            pinjie();
+            oLi[i].innerHTML=str+"@"+postfixList[i];
+            oLi[i].className = "oli";
+            // console.log(oLi[i].className);
+            test++;
+        }
+
+    }
+    /**
+     * 拼接输入的内容和后面的
+     */
+    function pinjie() {
+        // console.log(emailInput.value[i]);
+        // var str =new Array();这是个中间值被挪到了上面去
+        //这个循环会遍历全部输入内容，看里面有没有@，返回的是一个str，作为一个筛选的作用
+        for (var i=0;i<emailInput.value.length;i++){
+            if(emailInput.value[i]==="@"){//如果等于就直接跳过去。
+                // oLi[i].textContent=str+"@"+postfixList[i];
+                continue;
+            }
+            console.log(i+emailInput.value.length);
+            str[i]=emailInput.value[i];//得到input中输入的内容
+            // oLi[i].textContent=emailInput.value+"@"+postfixList[test];
+        }
+    }
+
+</script>
+</html>
