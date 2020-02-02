@@ -33,6 +33,7 @@
     var oLi=new Array();//存储生成的li标签。（不这么将生成语句提出来，下面就会不断地进行生成，因为每一个字都会触发一次事件。）
     var str =new Array();
     var test=0;
+    var a1=0;
 
     // emailInput.onkeyup= function() {
     //     // 获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
@@ -80,8 +81,6 @@
             // console.log("zhixing");
         }
     }
-
-
     /**
      * 隐藏
      */
@@ -95,30 +94,52 @@
      * 生成提示内容
      */
     function inform() {
-        for (var i = 0; i < postfixList.length - 1; i++) {
+        for (var i = 0; i < postfixList.length ; i++) {
             pinjie();
-            oLi[i].innerHTML=str+"@"+postfixList[i];
+            oLi[i].innerHTML=str.join("")+"@"+postfixList[i];
             oLi[i].className = "oli";
             // console.log(oLi[i].className);
-            test++;
+            test=test+1;
         }
-
+        console.log("test"+test);
     }
     /**
      * 拼接输入的内容和后面的
      */
-    function pinjie() {
-        // console.log(emailInput.value[i]);
+    function pinjie() {//得出的是用来拼接的用户内容
         // var str =new Array();这是个中间值被挪到了上面去
         //这个循环会遍历全部输入内容，看里面有没有@，返回的是一个str，作为一个筛选的作用
-        for (var i=0;i<emailInput.value.length;i++){
-            if(emailInput.value[i]==="@"){//如果等于就直接跳过去。
-                // oLi[i].textContent=str+"@"+postfixList[i];
+        str=new Array();//最前方初始化str
+        for (var i = 0; i < emailInput.value.length; i++) {
+            if (emailInput.value[i] === "@") {//这个循环实际上是检查每一个输入的字符。每次都是检查每一个
+                //如果等于就直接跳过去。
+                a1=i;//记录@所在的i（这个会被跳过去，所以之后直接用这个就可以）
                 continue;
+            }else {
+                a1=0;//标记数，要是没有@复原激发数
             }
-            console.log(i+emailInput.value.length);
-            str[i]=emailInput.value[i];//得到input中输入的内容
-            // oLi[i].textContent=emailInput.value+"@"+postfixList[test];
+            shengcheng();
+            str[i] = emailInput.value[i];//得到input中输入的内容
+            console.log("pinjie"+i);
+        }
+    }
+
+    /**
+     *对提示框中内容进行筛选。
+     * 实际上审查发生在输入的时候，那么就应该在pinjie函数中进行
+     * 你只有打了@之后，这个才执行
+     *
+     */
+    function shengcheng(){
+        if(a1>0) {
+            for(var i = 0; i < postfixList.length ; i++) {
+                for(var j=0;j<postfixList[i].length;j++) {
+                   if( postfixList[i][j] === emailInput.value[a1]){
+
+
+                   }//如果postfixlist的内容与输入的内容相等
+                }
+            }
         }
     }
 
