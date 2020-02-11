@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--<?xml-stylesheet type="text/css" href="a.css"?>-->
+
+<note>
+    <to>Georage</to>
+    <from>john</from>
+    <heading>Reminder</heading>
+    <body>Dont forget the meeting!</body>
+    <![CDATA[
+     if(xmlns:app="http://schemas.android.com/apk/res-auto"))
+     ]]>
+</note>
