@@ -97,7 +97,7 @@
      */
     function inform() {//
         time++;
-        console.log("inform运行了"+time);
+        // console.log("inform运行了"+time);
         pinjie();//拼接是一个检查的步骤。
         for (var i = 0; i < postfixList.length ; i++) {
             // pinjie();//因为一共有五个postfixL,所以每次执行inform必然调用五次   5
@@ -116,7 +116,10 @@
     function pinjie() {//得出的是用来拼接的用户内容
         // var str =new Array();这是个中间值被挪到了上面去
         //这个循环会遍历全部输入内容，看里面有没有@，返回的是一个str，作为一个筛选的作用
-        str=new Array();//最前方初始化str
+        // str=new Array();//最前方初始化str
+        if(emailInput.value.indexOf('@')===-1){
+            str=new Array();//最前方初始化str
+        }
         for (var i = 0; i < emailInput.value.length; i++) {
             if (emailInput.value[i] === "@") {//这个循环实际上是检查每一个输入的字符。每次都是检查每一个
                 //如果等于就直接跳过去。
@@ -127,7 +130,11 @@
             //     check=0;//标记数，要是没有@复原激发数
             // }
             shengcheng();//每次敲击都会增加一个输入内容，所以每次增加的数量会成5的倍数增长
-            str[i] = emailInput.value[i];//得到input中输入的内容
+            if(emailInput.value.indexOf('@')===-1){
+                console.log(emailInput.value.indexOf("@"));
+                str[i] = emailInput.value[i];//得到input中输入的内容
+            }
+            // str[i] = emailInput.value[i];//得到input中输入的内容
             // console.log("pinjie"+i);
         }
     }
@@ -141,13 +148,14 @@
      */
     function shengcheng(){
         var a=new Array();
-
+        console.log(check);
         if(check>0) {
             //则a1+1就是@后一个的内容
             for (var i = 0; i < postfixList.length; i++) {
                 for (var j = 0; j < postfixList[i].length; j++) {
-                    if (postfixList[i][j] === emailInput.value[check + 1]) {//比较条件，如果输入的内容与邮箱域名重合，则执行如下程序
-                        console.log(emailInput.value[check + 1]);
+                    console.log(postfixList[i][0]);
+                    if (postfixList[i][0] === emailInput.value[check+1]) {//比较条件，如果输入的内容与邮箱域名重合，则执行如下程序
+                        console.log(postfixList[i][1]);
                         a[c] = postfixList[i];//将内容付给一个中间数组
                         c = c + 1;//中间值数组一个元素
                         console.log("生成" + c);
