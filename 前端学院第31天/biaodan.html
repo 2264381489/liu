@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        table{
+            margin-top: 20px;
+            border: #CF51BA ;
+        }
+    </style>
+</head>
+<body>
+<label>地区</label>
+<select id="region-select">
+    <option hidden="true"></option>
+    <option value="华北">华北</option>
+    <option value="华东">华东</option>
+    <option value="华南">华南</option>
+</select>
+<select id="product-select">
+    <option hidden="true">商品</option>
+    <option>手机</option>
+    <option>笔记本</option>
+    <option>智能音箱</option>
+</select>
+<input type="radio">
+<div id="table-wrapper">
+</div>
+
+</body>
+<script>
+    let sourceData = [{
+        product: "手机",
+        region: "华东",
+        sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+    }, {
+        product: "手机",
+        region: "华北",
+        sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+    }, {
+        product: "手机",
+        region: "华南",
+        sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+    }, {
+        product: "笔记本",
+        region: "华东",
+        sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+    }, {
+        product: "笔记本",
+        region: "华北",
+        sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+    }, {
+        product: "笔记本",
+        region: "华南",
+        sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+    }, {
+        product: "智能音箱",
+        region: "华东",
+        sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+    }, {
+        product: "智能音箱",
+        region: "华北",
+        sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+    }, {
+        product: "智能音箱",
+        region: "华南",
+        sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+    }]
+    var select=document.getElementsByTagName("select");//获取选择框对象
+    var wrapper=document.getElementById("table-wrapper");
+    var a1;//是否执行
+    var b;
+    var table;
+
+    getTable();
+    select[0].onchange=function () {
+        console.log("maopao")
+        a1=1;
+        if(a1===1&&b===1){
+            getData();
+            a1=0;
+            b=0;
+            console.log("select1");
+        }
+
+    };
+    select[1].onchange=function () {
+        b=1;
+        console.log(a1+b);
+         if(a1===1&&b===1){
+             // console.log("select2");
+             a1=0;
+             console.log(a1);
+             b=0;
+             getData();
+
+
+         }
+    };
+    // console.log(select);
+
+//     for (var i=0;i<select.length;i++){//获得其中的每一个选项
+// //给每个option给予点
+//        select[i].onchange=function () {
+//              getTable();
+//            console.log(this.value);
+//        }
+//     }
+    //创建一个表格
+    function getTable() {
+
+         table=document.createElement("table");
+        console.log(table);
+        table.setAttribute("id","table1");
+        table.setAttribute("border","15");
+        wrapper.appendChild(table);
+        // if(this.value===sourceData.region){
+              var table1=document.getElementById("table1");
+              var tr=document.createElement("tr");
+              // var th=document.createElement("hr");
+              table1.appendChild(tr);
+        var th123=document.createElement("th");
+            th123.innerText="地区";
+            var th2=document.createElement("th");
+            th2.innerText="型号";
+            tr.appendChild(th123);
+            tr.appendChild(th2);
+              for (var i=0;i<12;i++){
+                  var th=document.createElement("th");
+                  th.innerHTML="第"+i+"月";
+                  tr.appendChild(th);
+              }
+              // console.log(sourceData[1].region);
+        // }
+    }
+    //获取数据
+    function getData() {
+
+ for(var i=0;i<sourceData.length;i++) {
+     if (select[0].value === sourceData[i].region ){
+         // var tr=document.createElement("tr");
+         // var td1=document.createElement("td");
+         // td1.innerHTML=select[0].value;
+         for (var j=0;j<sourceData.length;j++){
+
+         if(select[1].value === sourceData[j].product&&(select[0].value === sourceData[i].region))
+         {
+             var tr=document.createElement("tr");
+             var td1=document.createElement("td");
+             var td2=document.createElement("td");
+             td1.innerHTML=select[0].value;
+             td2.innerHTML=select[1].value;
+           table.appendChild(tr);
+           tr.appendChild(td1);
+           tr.appendChild(td2);
+           for (var i=0;i<12;i++){
+               var td3=document.createElement("td");
+               td3.innerText=sourceData[j].sale[i];
+               tr.appendChild(td3)
+           }
+         }
+    }
+     }
+    }
+ }
+
+
+
+
+    // region-select = function() {
+    //     渲染新的表格(根据select选项获取数据)
+    // }
+    //
+    // function 根据select选项获取数据() {
+    //     dosomething
+    //     返回数据
+    // }
+    //
+    // function 渲染新的表格(data) {
+    //     输出表头：商品、地区、1月、2月、…… 12月
+    //     遍历数据 {
+    //         输出每一行的表格HTML内容
+    //     }
+    //     把生成的HTML内容赋给table-wrapper
+    // }
+</script>
+</html>
